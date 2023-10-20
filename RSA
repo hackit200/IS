@@ -1,0 +1,54 @@
+#include <iostream> 
+#include <stdlib.h> 
+#include <math.h> 
+using namespace std; 
+int gcd(int a, int b)
+{
+ if (b == 0)
+ return a;
+ return gcd(b, a % b); 
+}
+int main() {
+ double p, q, e, i, d;
+ int flag;
+ cout<<"Enter first prime number p:\n";
+ cin>>p;
+ cout<<"Enter second prime number q:\n\n";
+ cin>>q;
+ int n = p*q; 
+ int phi = (p-1)*(q-1);
+ for(i=2; i<phi; i++)
+ {
+ if(gcd(i,phi)==1)
+ {
+ e = i;
+ break;
+ }
+ } 
+ i = 1;
+ while(true)
+ {
+ int j = (phi * i) + 1;
+ if(fmod(j,e) == 0)
+ {
+ d=j/e;
+ break;
+ }
+ i++;
+ }
+ cout<<"The value of phi: "<<phi<<endl;
+ cout<<"The value of d: "<<d<<endl;
+ cout<<"The value of e: "<<e<<endl;
+ cout<<"Public encryption key: (" <<e<<" , " <<n<< ") 
+"<<endl;
+ cout<<"Private dencryption key: (" <<d<<" , " <<n<< ") 
+"<<endl;
+ 
+ int cipher = fmod(pow(p,e), n);
+ cout<<"Encrypted Ciphertext : "<<cipher<<endl;
+ 
+ int plain = fmod(pow(cipher, d), n);
+ cout<<"Encrypted Plaintext : "<<plain<<endl;
+ 
+ return 0;
+}
