@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-void main()
+int main()
 { 
 char plain[10], cipher[10];
 int key, i,length;
@@ -27,5 +27,4 @@ if (isupper(cipher[i]) && (plain[i]<'A')) plain[i]=plain[i]+26;
 if (islower(cipher[i]) && (plain[i]<'a')) plain[i]=plain[i]+26;
 printf("%c", cipher[i]);
 }
-getch();
-}
+return 0;
