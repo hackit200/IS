@@ -28,3 +28,4 @@ if (islower(cipher[i]) && (plain[i]<'a')) plain[i]=plain[i]+26;
 printf("%c", cipher[i]);
 }
 return 0;
+}
